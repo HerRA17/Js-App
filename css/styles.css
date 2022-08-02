@@ -1,1 +1,11 @@
+* {
+box-sizing:border-box;
+}
 
+body{
+    background-color:#30415A ;
+    color:#3AB4F2;
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 20px;
+}
