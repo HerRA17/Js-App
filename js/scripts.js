@@ -19,12 +19,42 @@ const pokemonFour = {
     name: 'Articuno',
     height:'1.7m',
     type:'flying, ice'
-};
+}; //objects
 
-pokemonList.push(pokemonOne);
-pokemonList.push(pokemonTwo);
-pokemonList.push(pokemonThree);
-pokemonList.push(pokemonFour);
-console.log(pokemonList.length);
-console.log(pokemonList);
+let pokemonRepository = (function (){
+    pokemonList = [];
+      if (typeof Object === 'function') {
+        function add(pokemon) {
+            pokemonList.push(pokemon);
+                } 
+        function getAll() {
+           return pokemonList.getAll()
+                }
+        function remove() {
+            pokemonList.pop(pokemon)
+                }           
+        }
+        return{ 
+            add: add,
+            getAll: getAll,
+            remove: remove
+          };
+        
+}) (); //IIFE
 
+// simplyfying loop-forEach
+function clasification(pokemons) {
+    
+    let str = `<p>${pokemons.name}, is (${pokemons.height})m, and an ${pokemons.type}.</p>`;
+     if (type === 'fire, flying') {
+         document.getElementsById('fire, flying-pokemon').innerHTML = str; 
+     }  else if (type === 'electric-pokemon' ) {
+         document.getElementsById('electric-pokemon').innerHTML = str; 
+     } else if (type === 'psychic' ) {
+         document.getElementsById('psychic-pokemon').innerHTML = str; //I am not sure if that should as well be part of it?
+     } else if (type === 'flying, ice' ) {
+         document.getElementsById('flying, ice-pokemon').innerHTML = str; 
+     }
+    console.log(str);
+}
+pokemonList.forEach(clasification);
