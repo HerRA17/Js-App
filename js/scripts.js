@@ -2,23 +2,23 @@ let pokemonList = [];
 
 const pokemonOne = {
     name:'Charizard',
-    height: '1.7m',
-    type: 'fire, flying'
+    height: 1.7,
+    type: ['fire', 'flying']
 };
 const pokemonTwo = {
     name:'Pikachu',
-    height:'.4m',
+    height:0.4,
     type: 'electric'
 }; 
 const pokemonThree ={
     name:'Mewtwo',
-    height: '2m',
+    height: 2.0,
     type: 'psychic'
 };
 const pokemonFour = {
     name: 'Articuno',
-    height:'1.7m',
-    type:'flying, ice'
+    height:1.7,
+    type:['flying', 'ice']
 };
 
 pokemonList.push(pokemonOne);
