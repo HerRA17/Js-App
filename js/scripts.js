@@ -1,5 +1,3 @@
-let pokemonList = [];
-
 const pokemonOne = {
     name:'Charizard',
     height: 1.7,
@@ -20,12 +18,36 @@ const pokemonFour = {
     height:1.7,
     type:['flying', 'ice']
 };
+//local scope array and functions
+const pokemonRepository = (function (){
+    const pokemonList = [];
+//addition of pokemon
+    function add(pokemon) {
+        if (typeof pokemon === 'object' && 'name' in pokemon) {
+            pokemonList.push(pokemon); } else {
+                console.log('pokemon is not correct');
+                // document.alert('pokemon is not correct');
+               }
+        }
+    //get all pokemons
+    function getAll() {
+            return pokemonList;
+        }
+        //remove pokemons; even though is not properly working
+    function remove() {
+            pokemonList.pop(pokemon);
+        }           
+        return{ 
+            add: add,
+            getAll: getAll,
+            remove: remove
+          }
 
-pokemonList.push(pokemonOne);
-pokemonList.push(pokemonTwo);
-pokemonList.push(pokemonThree);
-pokemonList.push(pokemonFour);
-
+}) (); //IIFE
+pokemonRepository.add(pokemonOne);
+pokemonRepository.add(pokemonTwo);
+pokemonRepository.add(pokemonThree);
+pokemonRepository.add(pokemonFour);
 // simplyfying loop-forEach
 function clasification(pokemon) {
         // let str = `<p>${pokemon.name}, is (${pokemon.height})m, and an ${pokemon.type}.</p>`;
