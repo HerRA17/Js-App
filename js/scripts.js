@@ -26,10 +26,26 @@ pokemonList.push(pokemonTwo);
 pokemonList.push(pokemonThree);
 pokemonList.push(pokemonFour);
 
-for (const {name, height} of pokemonList) {
-    if (height > 1.0 ) {
-        document.write(`<p class="large-pokemon">${name}, is (${height})m, and an ${pokemon.type}. This is a big Pokémon!</p>`);
-    } else {
-        document.write(`<p class="small-pokemon">${name}, is (${height})m, and an ${pokemon.type}. Might not be big but could surprise you.</p>`);
+// simplyfying loop-forEach
+function clasification(pokemon) {
+        // let str = `<p>${pokemon.name}, is (${pokemon.height})m, and an ${pokemon.type}.</p>`;
+    if (pokemon.type[0] === 'fire' && pokemon.type[1] === 'flying') {
+        document.write(`<p id="fire-flying-pokemon">${pokemon.name}, is ${pokemon.height}m, and an ${pokemon.type}.</p>`);
+        // console.log(`<p>${pokemon.name}, is ${pokemon.height}m, and an ${pokemon.type}.</p>`); 
+    }  else if (pokemon.type === 'electric' ) {
+        document.write(`<p id="electric-pokemon">${pokemon.name}, is ${pokemon.height}m, and an ${pokemon.type}.</p>`);
+        // console.log(`<p>${pokemon.name}, is ${pokemon.height}m, and an ${pokemon.type}.</p>`);
+        // document.write(str); 
+    } else if (pokemon.type === 'psychic' ) {
+        document.write(`<p id="psychic-pokemon">${pokemon.name}, is ${pokemon.height}m, and an ${pokemon.type}.</p>`);
+        // console.log(`<p>${pokemon.name}, is ${pokemon.height}m, and an ${pokemon.type}.</p>`);
+        // document.write(str); //I am not sure if that should as well be part of it?
+    } else if (pokemon.type[0] === 'ice' && pokemon.type[1] === 'flying' ) {
+        document.write(`<p id="ice-flying-pokemon">${pokemon.name}, is ${pokemon.height}m, and an ${pokemon.type}.</p>`);
+        // console.log(`<p>${pokemon.name}, is ${pokemon.height}m, and an ${pokemon.type}.</p>`);
+        // document.write(str); 
     }
+    
 }
+// console.log(pokemonList.forEach(clasification));
+pokemonList.forEach(clasification);
