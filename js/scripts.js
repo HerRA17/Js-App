@@ -17,7 +17,6 @@ const pokemonRepository = (function (){
         type: 'psychic'
     }
     ];
-
     function add(pokemon) {
         if (typeof pokemon === 'object' && 
         'name' in pokemon &&
@@ -32,6 +31,10 @@ const pokemonRepository = (function (){
     function getAll() {
             return pokemonList;
         }
+    //shows details of pokemon
+    function showDetails(pokemon){
+            console.log(pokemon);
+        }
     //add List function
         function addListItem(pokemon) {
         //selector of ul in HTMl
@@ -39,14 +42,16 @@ const pokemonRepository = (function (){
         //variable-pokemon defined
         let listPokemon = document.createElement('li');
         //button creation
-        let button = document.createElement('button').innerText = pokemon.name;
+        let button = document.createElement('button');
+        button.innerText = pokemon.name
         button.classList.add('button-pokemon');
         //append li-button
         listPokemon.appendChild(button);
         //append li    
         pokemonList.appendChild(listPokemon);
-        button.addEventListener('click', function(pokemon){
-            console.log(pokemon)
+        //add click function
+        button.addEventListener('click', function(event){
+            showDetails(pokemon);
         });
         }
         return{ 
@@ -58,21 +63,10 @@ const pokemonRepository = (function (){
 }) (); //IIFE
 
 pokemonRepository.add({name: 'Articuno',     height:1.7,    type:[ 'ice', 'flying']}); 
-// simplyfying loop-forEach pokemon
- function clasification(pokemon) {
-    let str = `<p>${pokemon.name}, is ${pokemon.height}m, and an ${pokemon.type} pokemon.</p>`;
-if (pokemon.type[0] === 'fire' && pokemon.type[1] === 'flying') {
-    document.write(str);
-}  else if (pokemon.type === 'electric' ) {
-    document.write(str);
-} else if (pokemon.type === 'psychic' ) {
-    document.write(str);
-} else if (pokemon.type[0] === 'ice' && pokemon.type[1] === 'flying' ) {
-    document.write(str);
-    }
+//calls the add List item function  
+function classification(pokemon) {
+   pokemonRepository.addListItem(pokemon);
 }
+pokemonRepository.getAll().forEach(classification); 
 
-//clasification of pekomen types with loop
-pokemonRepository.getAll().forEach(clasification (pokemon)) {
-pokemonRepository.addListItem(pokemon);    
-};
+
