@@ -32,10 +32,27 @@ const pokemonRepository = (function (){
     function getAll() {
             return pokemonList;
         }
-        
+    //add List function
+        function addListItem(pokemon) {
+        //selector of ul in HTMl
+        let pokemonList = document.querySelector('.pokemon-list');
+        //variable-pokemon defined
+        let listPokemon = document.createElement('li');
+        //button creation
+        let button = document.createElement('button').innerText = pokemon.name;
+        button.classList.add('button-pokemon');
+        //append li-button
+        listPokemon.appendChild(button);
+        //append li    
+        pokemonList.appendChild(listPokemon);
+        button.addEventListener('click', function(pokemon){
+            console.log(pokemon)
+        });
+        }
         return{ 
             add: add,
             getAll: getAll,
+            addListItem: addListItem 
         }
         
 }) (); //IIFE
@@ -55,4 +72,7 @@ if (pokemon.type[0] === 'fire' && pokemon.type[1] === 'flying') {
     }
 }
 
-pokemonRepository.getAll().forEach(clasification); 
+//clasification of pekomen types with loop
+pokemonRepository.getAll().forEach(clasification (pokemon)) {
+pokemonRepository.addListItem(pokemon);    
+};
