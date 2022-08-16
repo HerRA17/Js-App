@@ -1,42 +1,26 @@
+//IIFE-sort of a repository
 const pokemonRepository = (function (){
-//objects
-    const pokemonList = [
-    {
-        name:'Charizard',
-        height: 1.7,
-        type: ['fire' , 'flying']
-    },
-    {
-        name:'Pikachu',
-        height: 0.4,
-        type: 'electric'
-    }, 
-    {
-        name:'Mewtwo',
-        height: 2.0,
-        type: 'psychic'
-    }
-    ];
+    const pokemonList = [];
+    //api-url of pokemons
+    let apiUrl ='https://pokeapi.co/api/v2/pokemon/?limit=150';
+    //function add pokemon
     function add(pokemon) {
         if (typeof pokemon === 'object' && 
         'name' in pokemon &&
-        'height' in pokemon &&
-        'type' in pokemon) {
+        'detailsUrl' in pokemon 
+            ) {
             pokemonList.push(pokemon); 
         } else {
                 console.log('pokemon is not correct');
-                // document.alert('pokemon is not correct');
+                document.alert('pokemon is not correct');
                }
-            }
+        }
+    //get all function
     function getAll() {
             return pokemonList;
         }
-    //shows details of pokemon
-    function showDetails(pokemon){
-            console.log(pokemon);
-        }
-    //add List function
-        function addListItem(pokemon) {
+    //add pokemon to list-creating elements in HTML
+    function addListItem(pokemon) {
         //selector of ul in HTMl
         let pokemonList = document.querySelector('.pokemon-list');
         //variable-pokemon defined
@@ -49,24 +33,62 @@ const pokemonRepository = (function (){
         listPokemon.appendChild(button);
         //append li    
         pokemonList.appendChild(listPokemon);
-        //add click function
         button.addEventListener('click', function(event){
-            showDetails(pokemon);
-        });
+            loadDetails(pokemon);
+            });
         }
+    //load list function
+    function loadList() {
+        return fetch(apiUrl).then(function (response) {
+            return response.json();
+            }).then(function (json){
+                json.results.forEach(function (item) {
+                    let pokemon = {
+                        name: item.name,
+                        detailsUrl: item.url
+                    };
+                    add(pokemon);
+                    console.log(pokemon);
+                });
+            }).catch(function (e) {
+                console.error(e);
+            }) 
+        };
+    //load details function
+    function loadDetails(item) { 
+        let url = item.detailsUrl;
+        return fetch(url).then(function (response){
+        return response.json();
+        }).then(function (details) {
+            item.imageUrl = details.sprites.front_default;
+            item.height = details.height;
+            item.types = details.types;
+        }).catch(function (e){
+        console.error(e);
+        });
+    }
+     //shows details of pokemon
+    function showDetails(pokemon){
+        pokemonRepository.loadDetails(item).then(function(){
+            console.log(item);
+        });
+    }
         return{ 
             add: add,
             getAll: getAll,
-            addListItem: addListItem 
-        }
-        
-}) (); //IIFE
+            addListItem:addListItem,
+            loadList:loadList,
+            loadDetails:loadDetails,
+            showDetails:showDetails
+        };
 
-pokemonRepository.add({name: 'Articuno',     height:1.7,    type:[ 'ice', 'flying']}); 
-//calls the add List item function  
-function classification(pokemon) {
-   pokemonRepository.addListItem(pokemon);
-}
-pokemonRepository.getAll().forEach(classification); 
+}) ();
+
+pokemonRepository.loadList().then(function(){
+    pokemonRepository.getAll().forEach(function(pokemon) {
+        pokemonRepository.addListItem(pokemon);
+    });
+});
+
 
 
