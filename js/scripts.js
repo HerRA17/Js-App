@@ -34,7 +34,7 @@ const pokemonRepository = (function (){
         //append li    
         pokemonList.appendChild(listPokemon);
         button.addEventListener('click', function(event){
-            loadDetails(pokemon);
+            showDetails(pokemon);
             });
         }
     //load list function
@@ -69,8 +69,8 @@ const pokemonRepository = (function (){
     }
      //shows details of pokemon
     function showDetails(pokemon){
-        pokemonRepository.loadDetails(item).then(function(){
-            console.log(item);
+        pokemonRepository.loadDetails(pokemon).then(function(){
+            console.log(pokemon);
         });
     }
         return{ 
