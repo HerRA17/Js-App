@@ -3,12 +3,21 @@
     <head>
         <meta charset="uft-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="img/png" sizes="32x32" href="img/pokebola.png">
         <title>Simple Js App</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     </head>
     <body>
-        <ul class="pokemon-list"></ul>
+        <h1>Pokedex</h1>
+        <ul class="pokemon-list" id="loading-message"></ul>
+        <button id='show-modal'>Show modal</button>
+        <button id='show-dialog'>Show dialog</button>
+        <div id="modal-container"></div>
         <script src="js/promise-polyfill.js"></script>
         <script src="js/scripts.js"></script>
+    <footer>
+        <a class="credits" href="https://www.flaticon.es/iconos-gratis/pokemon" title="pokemon iconos">Pokemon iconos created by Nikita Golubev - Flaticon</a>
+    </footer>
     </body>
 </html>
