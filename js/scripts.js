@@ -95,10 +95,10 @@ const pokemonRepository = (function (){
             let closeButtonElement = document.createElement('button');
             closeButtonElement.classList.add('modal-close');
             closeButtonElement.innerText = 'Close';
-            closeButtonElement.addEventLister('click' , hideModal);
+            closeButtonElement.addEventListener('click' , hideModal);
             //add title
             let titleElement = document.createElement('h1');
-            titleElement.innerText = pokemon.name.chatAt(0).toUpperCase() + pokemon.name.slice(1);
+            titleElement.innerText = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
             //add content
             let contentElement = document.createElement('p');
             contentElement.innerText = `Height: ${pokemon.height}`;
