@@ -83,11 +83,11 @@ const pokemonRepository = (function (){
     }
         
         //Show Modal function
-        function showModal(title, text) {
+        function showModal(pokemon) {
+            let modalContainer = document.querySelector('#modal-container');
             modalContainer.innerHTML = '';
             // let modalContainer = document.createElement('div');
             // modalContainer.setAttribute('id', 'modal-container');
-            let modalContainer = document.querySelector('#modal-container');
             //create modal element & giving it a class
             let modal = document.createElement('div');
             modal.classList.add('modal');
@@ -98,14 +98,14 @@ const pokemonRepository = (function (){
             closeButtonElement.addEventLister('click' , hideModal);
             //add title
             let titleElement = document.createElement('h1');
-            titleElement.innerText = pokemon.name.chartArt(0).toUpperCase() + pokemon.name.slice(1);
+            titleElement.innerText = pokemon.name.chatAt(0).toUpperCase() + pokemon.name.slice(1);
             //add content
             let contentElement = document.createElement('p');
             contentElement.innerText = `Height: ${pokemon.height}`;
             //add image
             let imgElement = document.createElement('img');
             imgElement.classList.add('pokemon-img')
-            imgElement.src = pokemon.imgUrl; 
+            imgElement.src = pokemon.imageUrl; 
             //appending Child elements of modal and modal Container
             //append container modal-check if 
             modalContainer.append;
@@ -118,7 +118,7 @@ const pokemonRepository = (function (){
         }
         //Hide Modal function
         function hideModal() {
-            modalContainer.classList.remove('is-visible');
+            document.querySelector('#modal-container').classList.remove('is-visible');
             //condition statement for the removal of class
             if(dialogPromiseReject) {
                 dialogPromiseReject();
