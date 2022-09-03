@@ -74,101 +74,46 @@ const pokemonRepository = (function (){
     }
      //shows details of pokemon
     function showDetails(pokemon){
-    //addition of modal functionality
+    
         pokemonRepository.loadDetails(pokemon).then(function
             (){
                 showModal(pokemon);
                 console.log(pokemon);
             });
     }
+    
+    //Function modal
+    function showModal(item) {
+        let modalBody = $('.modal-body');
+        let modalTitle = $('.modal-title');
+        let modalHeader = $('.modal-header');
         
-        //Show Modal function
-        function showModal(pokemon) {
-            let modalContainer = document.querySelector('#modal-container');
-            modalContainer.innerHTML = '';
-            // let modalContainer = document.createElement('div');
-            // modalContainer.setAttribute('id', 'modal-container');
-            //create modal element & giving it a class
-            let modal = document.createElement('div');
-            modal.classList.add('modal');
-            //add new modal
-            let closeButtonElement = document.createElement('button');
-            closeButtonElement.classList.add('modal-close');
-            closeButtonElement.innerText = 'Close';
-            closeButtonElement.addEventListener('click' , hideModal);
-            //add title
-            let titleElement = document.createElement('h1');
-            titleElement.innerText = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-            //add content
-            let contentElement = document.createElement('p');
-            contentElement.innerText = `Height: ${pokemon.height}`;
-            //add image
-            let imgElement = document.createElement('img');
-            imgElement.classList.add('pokemon-img')
-            imgElement.src = pokemon.imageUrl; 
-            //appending Child elements of modal and modal Container
-            //append container modal-check if 
-            modalContainer.append;
-            modal.appendChild(closeButtonElement);
-            modal.appendChild(titleElement);
-            modal.appendChild(contentElement);
-            modal.appendChild(imgElement);
-            modalContainer.appendChild(modal);
-            modalContainer.classList.add('is-visible');
-        }
-        //Hide Modal function
-        function hideModal() {
-            document.querySelector('#modal-container').classList.remove('is-visible');
-            //condition statement for the removal of class
-            if(dialogPromiseReject) {
-                dialogPromiseReject();
-                dialogPromiseReject = null;
-            }
-        }
-        function showDialog(title,text) {
-            showModal(title,text);
-            //select modal-class
-            let modal = modalContainer.querySelector('.modal');
-            //create confirm button, class addition and setting inner Text
-            let confirmButton = document.createElement('button');
-            confirmButton.classList.add('modal-confirm');
-            confirmButton.innerText = 'Confirm';
-            //create  cancel button, class addition and setting inner Text
-            let cancelButton = document.createEleemnte('button');
-            cancelButton.classList.add('modal-cancel')
-            cancelButton.innerText = 'Cancel';
-            //append childs to modal
-            modal.appendChild(confirmButton);
-            modal.appendChild(cancelButton);
-            //set Focus to confirm to easily select button with keyboard
-            confirmButton.focus();
-            //Promise
-            return new Promise((resolve, reject) => {
-                cancelButton.addEventListener('click', hideModal);
-                confirmButton.addEventListener('click', () =>{
-                    dialogPromiseReject = null;
-                    hideModal();
-                    resolve();
-                });
-                dialogPromiseReject = reject;
-            });
-        }
-        //Even listener for text display either confirm or not 
-        document.querySelector('#show-modal').addEventListener('click', () => {
-            showDialog('Confirm action', 'Are you sure you want to do this?').then(function() {
-                alert('confirmed!');
-            }, () => {
-                alert('not confirmed!')
-            });
-        });
-        //event listener to exit with key-escape
-        window.addEventListener('keydown', (e) => {
-            let modalContainer = document.querySelector('#modal-container');
-            if(e.key === 'Escape' &&
-            modalContainer.classList.contains('is-visible')) {
-                hideModal();
-            }
-        });
+        modalTitle.empty();
+        modalBody.empty();
+    //creating element for name
+        let nameElement = $('<h1>'+ item.name+'</h1>');
+    //creating new img
+        let imageElementFront = $('<img classs="modal-img" style="width:50%">');
+        imageElementFront.attr('src', item.imageUrlFront);
+        let imageElementBack = $('<img classs="modal-img" style="width:50%">');
+        imageElementBack.attr('src', item.imageUrlBack);
+    //creating elemnt for height
+        let heightElement = $('<p>'+ 'height: '+ item.height +'</p>');
+    //creating element for weight
+        let weightElement = $('<p>'+ 'weight: '+ item.weight +'</p>');
+    //creating element for types
+        let typesElement = $('<p>'+ 'types: '+ item.types +'</p>');
+    //creating element for abilities
+        let abilitiesElement = $('<p>'+ 'abilities: '+ item.abilities +'</p>');
+        modalTitle.append(nameElement);
+        modalBody.append(imageElementFront);
+        modalBody.append(imageElementBack);
+        modalBody.append(heightElement);
+        modalBody.append(weightElement);
+        modalBody.append(typesElement);
+        modalBody.append(abilitiesElement);
+    } 
+    
     
         return{ 
             add: add,
@@ -176,7 +121,7 @@ const pokemonRepository = (function (){
             addListItem:addListItem,
             loadList:loadList,
             loadDetails:loadDetails,
-            showDetails:showDetails
+            showModal:showModal
         };
 
 })();
