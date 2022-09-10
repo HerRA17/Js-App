@@ -119,7 +119,7 @@ const pokemonRepository = (function (){
       const capitalized = str.replace(/^./, str[0].toUpperCase());
       return capitalized;
       }
-    
+    //Returning IIFE functions
         return{ 
             add: add,
             getAll: getAll,
