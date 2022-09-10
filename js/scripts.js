@@ -30,7 +30,7 @@ const pokemonRepository = (function (){
         listPokemon.classList.add('col-sm-4','col-md-6','col-lg-12')
         //button creation
         let button = document.createElement('button');
-        button.innerText = pokemon.name;
+        button.innerText = capitalizeFirstLetter(pokemon.name);
         button.classList.add('pokemon-button');
         button.setAttribute('data-toggle','modal');
         button.setAttribute('data-target','#pokemon-modal');
@@ -91,7 +91,7 @@ const pokemonRepository = (function (){
         modalTitle.empty();
         modalBody.empty();
     //creating element for name
-        let nameElement = $('<h1>'+ pokemon.name+'</h1>');
+        let nameElement = $('<h1>'+ capitalizeFirstLetter(pokemon.name)+'</h1>');
     //creating new img
         let imageElementFront = $('<img alt="" src="${item.imageUrl}" class="modal-img" style="width:50%">');
         imageElementFront.attr('src', pokemon.imageUrlFront);
@@ -113,7 +113,12 @@ const pokemonRepository = (function (){
         modalBody.append(typesElement);
         modalBody.append(abilitiesElement);
     } 
-    
+    // program to convert first letter of a string to uppercase
+    function capitalizeFirstLetter(str) {
+      // converting first letter to uppercase
+      const capitalized = str.replace(/^./, str[0].toUpperCase());
+      return capitalized;
+      }
     
         return{ 
             add: add,
