@@ -98,13 +98,13 @@ const pokemonRepository = (function (){
         let imageElementBack = $('<img classs="modal-img" style="width:50%">');
         imageElementBack.attr('src', pokemon.imageUrlBack);
     //creating elemnt for height
-        let heightElement = $('<p>'+ 'height: '+ pokemon.height +'</p>');
+        let heightElement = $('<p>'+ 'Height: '+ pokemon.height +'</p>');
     //creating element for weight
-        let weightElement = $('<p>'+ 'weight: '+ pokemon.weight +'</p>');
+        let weightElement = $('<p>'+ 'Weight: '+ pokemon.weight +'</p>');
     //creating element for types
-        let typesElement = $('<p>'+ 'types: '+ pokemon.types +'</p>');
+        let typesElement = $('<p>'+ 'Types: '+ pokemon.types +'</p>');
     //creating element for abilities
-        let abilitiesElement = $('<p>'+ 'abilities: '+ pokemon.abilities +'</p>');
+        let abilitiesElement = $('<p>'+ 'Abilities: '+ pokemon.abilities +'</p>');
         modalTitle.append(nameElement);
         modalBody.append(imageElementFront);
         modalBody.append(imageElementBack);
