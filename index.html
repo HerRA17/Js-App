@@ -7,11 +7,15 @@
         <title>Simple Js App</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+        <!-- Bootstrap CSS-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Pokedex</h1>
+        <header>
+            <h1>Pokedex</h1>
+        </header>
+        <main>
         <ul class="list-group"></ul>
         <!--Button trigger Modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#"></button>
@@ -26,6 +30,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                        <!-- Loading spinner-->
                         <div class="d-flex align-items-center">
                                   <strong>Loading...</strong>
                                   <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
@@ -33,12 +38,11 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save Changes</button>
                     </div>
                 </div>
             </div>
         </div>
-        
+        </main>
         <script src="js/promise-polyfill.js"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" 
