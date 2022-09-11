@@ -12,7 +12,7 @@ const pokemonRepository = (function (){
             ) {
             pokemonList.push(pokemon); 
         } else {
-                console.log('pokemon is not correct');
+               // console.log('pokemon is not correct');
                 document.alert('pokemon is not correct');
                }
         }
@@ -95,8 +95,6 @@ const pokemonRepository = (function (){
     //creating new img
         let imageElementFront = $('<img alt="" src="${item.imageUrl}" class="modal-img" style="width:50%">');
         imageElementFront.attr('src', pokemon.imageUrlFront);
-        let imageElementBack = $('<img classs="modal-img" style="width:50%">');
-        imageElementBack.attr('src', pokemon.imageUrlBack);
     //creating elemnt for height
         let heightElement = $('<p>'+ 'Height: '+ pokemon.height +'</p>');
     //creating element for weight
@@ -107,7 +105,6 @@ const pokemonRepository = (function (){
         let abilitiesElement = $('<p>'+ 'Abilities: '+ pokemon.abilities +'</p>');
         modalTitle.append(nameElement);
         modalBody.append(imageElementFront);
-        modalBody.append(imageElementBack);
         modalBody.append(heightElement);
         modalBody.append(weightElement);
         modalBody.append(typesElement);
