@@ -102,7 +102,7 @@ const pokemonRepository = (function () {
       let nameElement = $("<h1>" + capitalizeFirstLetter(pokemon.name) + "</h1>");
       //creating new img
       let imageElementFront = $(
-        '<img alt="pokemon-image" src="${pokemon.imageUrl}" class="modal-img" style="width:50%">'
+        `<img alt="pokemon-image" src="${pokemon.imageUrl}" class="modal-img" style="width:50%">`
       );
       imageElementFront.attr("src", pokemon.imageUrlFront);
       //creating elemnt for height
