@@ -104,7 +104,6 @@ const pokemonRepository = (function () {
       let imageElementFront = $(
         `<img alt="pokemon-image" src="${pokemon.imageUrl}" class="modal-img" style="width:50%">`
       );
-      imageElementFront.attr("src", pokemon.imageUrlFront);
       //creating elemnt for height
       let heightElement = $("<p>" + "Height: " + pokemon.height + "</p>");
       //creating element for weight
