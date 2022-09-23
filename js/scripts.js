@@ -37,7 +37,7 @@ const pokemonRepository = (function () {
       button.setAttribute("data-toggle", "modal");
       button.setAttribute("data-target", "#pokemon-modal");
       // addShowModal(pokemon);
-      button.addEventListener("click", function (event) {
+      button.addEventListener("click", function () {
         showDetails(pokemon);
       });
       //append li-button
@@ -92,6 +92,7 @@ const pokemonRepository = (function () {
     }
   
     //Function modal
+    let modalContainer = document.querySelector("#pokemon-modal");
     function showModal(pokemon) {
       let modalBody = $(".modal-body");
       let modalTitle = $(".modal-title");
@@ -109,20 +110,82 @@ const pokemonRepository = (function () {
       //creating element for weight
       let weightElement = $("<p>" + "Weight: " + pokemon.weight + "</p>");
       //creating element for types
-      // let pokemonTypes = [];
-      // Object.key(pokemon.types).forEach(key => {
-      //   pokemonTypes.push("" + pokemon.types[key].type.name);
-      // })
-      // let typesElement = $("<p>" + "Type(s): " + pokemonTypes + "</p>");
+      let pokemonTypes = [];
+        "types":[
+          {
+            "slot": 1,
+            "type": {
+              "name":"fighting",
+              "url": "https://pokeapi.co/api/v2/type/2/",
+              
+              "name": "flying",
+              "url": "https://pokeapi.co/api/v2/type/3/",
+              
+              "name": "psychic",
+              "url": "https://pokeapi.co/api/v2/type/14/",
+
+              "name": "fairy",
+              "url": "https://pokeapi.co/api/v2/type/18/",
+              
+              "name": "normal",
+              "url": "https://pokeapi.co/api/v2/type/1/",
+              
+              "name": "rock",
+              "url": "https://pokeapi.co/api/v2/type/6/",
+              
+              "name": "steel",
+              "url": "https://pokeapi.co/api/v2/type/9/",
+              
+              "name": "ice",
+              "url": "https://pokeapi.co/api/v2/type/15/",
+              
+              "name": "dark",
+              "url": "https://pokeapi.co/api/v2/type/17/",
+              
+              "name": "bug",
+              "url": "https://pokeapi.co/api/v2/type/7/",
+              
+              "name": "poison",
+              "url": "https://pokeapi.co/api/v2/type/4/",
+              
+              "name": "ghost",
+              "url": "https://pokeapi.co/api/v2/type/8/"
+            }
+          }
+        ]
+      }
+      //let pokemonTypes = [];
+		  // Object.keys(pokemon.types).forEach(key => {
+			// 	pokemonTypes.push(' ' + pokemon.types[key].type.name);
+			// });
+  		// typesElement.innerText = 'Type: ' + pokemonTypes;
       let typesElement = $("<p>" + "Type(s): " + pokemon.types + "</p>");
-      // typesElement.classList.add("element-types");
-      
+            
       modalTitle.append(nameElement);
       modalBody.append(imageElementFront);
       modalBody.append(heightElement);
       modalBody.append(weightElement);
       modalBody.append(typesElement);
+        // $('#pokemon-modal').modal('show');
+      modalContainer.classList.add("is-visible");
       }
+    //Function hide modal 
+    function hideModal() {
+      modalContainer.classList.remove("is-visible");
+    }
+    //Function to hide modal when Escapekey is pressed
+      window.addEventListener("keydown", (e) => {
+        if(e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
+          hideModal();
+          }
+        });
+    //Function to hide modal when clicking outside of modal
+        modalContainer.addEventListener("click", (e) => {
+          let target = e.target;
+          if (target === modalContainer){
+           hideModal(); 
+          }
+        });
     // program to convert first letter of a string to uppercase
     function capitalizeFirstLetter(str) {
       // converting first letter to uppercase
@@ -137,6 +200,8 @@ const pokemonRepository = (function () {
       loadList: loadList,
       loadDetails: loadDetails,
       showDetails: showDetails,
+      showModal:showModal,
+      hideModal:hideModal
     };
   })();
   
