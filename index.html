@@ -16,9 +16,9 @@
             <h1>Pokedex</h1>
         </header>
         <main>
+        <div class="pokemon-list-container">
         <ul class="list-group"></ul>
-        <!--Button trigger Modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pkemon-modal"></button>
+        <div>
         <!--Modal -->
         <div class="modal-fade" id="pokemon-modal" tabindex="-1" role="dialog" aria-labelledby="pokemon-modal-label" aria-hidden="true">
             <div class="modal-dialog"  role="document">
@@ -34,6 +34,28 @@
                         <div class="d-flex align-items-center">
                                   <strong>Loading...</strong>
                                   <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                            <!-- Carousel code-->
+                            <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div> -->
                         </div>
                     </div>
                     <div class="modal-footer">
