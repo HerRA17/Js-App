@@ -1,8 +1,8 @@
 ## Pokédex
 ## Table of Contents
-*[General info](#general-info)
-*[Key Features](#key-features)
-*[Technologies Used](#technologies-used)
+* [General info](#general-info)
+* [Key Features](#key-features)
+* [Technologies Used](#technologies-used)
 ## General info
 Small web application that loads data from external API (Pokemons from an external source).
 Additionally enables viewing loaded data items in detail (height, weight).
