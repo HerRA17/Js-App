@@ -111,7 +111,7 @@ const pokemonRepository = (function () {
       let weightElement = $("<p>" + "Weight: " + pokemon.weight + "</p>");
       //creating element for types
       let pokemonTypes = [];
-        "types":[
+        pokemonTypes = {"types":[
           {
             "slot": 1,
             "type": {
