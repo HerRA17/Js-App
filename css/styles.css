@@ -82,11 +82,14 @@ ul {
         justify-items: center;
     }
 
-@media screen and  (max-width: 450px) {
-        display: block;
+@media screen and  (max-width: 500px) {
+        li{
+            display: block;
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
         justify-items: center;
         width: 95%;
     }
+}
+
