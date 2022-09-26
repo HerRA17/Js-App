@@ -167,6 +167,7 @@ const pokemonRepository = (function () {
       modalBody.append(weightElement);
       modalBody.append(typesElement);
       modalContainer.classList.add("is-visible");
+	$('#pokemon-modal').modal('show');
       }
     //Function hide modal 
     function hideModal() {
@@ -191,7 +192,6 @@ const pokemonRepository = (function () {
       const capitalized = str.replace(/^./, str[0].toUpperCase());
       return capitalized;
       }
-	$('#pokemon-modal').modal('show');
     //Returning IIFE functions
     return {
       add: add,
