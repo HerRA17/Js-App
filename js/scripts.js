@@ -159,14 +159,13 @@ const pokemonRepository = (function () {
 			// 	pokemonTypes.push(' ' + pokemon.types[key].type.name);
 			// });
   		// typesElement.innerText = 'Type: ' + pokemonTypes;
-      let typesElement = $("<p>" + "Type(s): " + pokemon.types + "</p>");
+      let typesElement = $("<p>" + "Type(s): " + pokemonTypes + "</p>");
             
       modalTitle.append(nameElement);
       modalBody.append(imageElementFront);
       modalBody.append(heightElement);
       modalBody.append(weightElement);
       modalBody.append(typesElement);
-        // $('#pokemon-modal').modal('show');
       modalContainer.classList.add("is-visible");
       }
     //Function hide modal 
@@ -192,6 +191,7 @@ const pokemonRepository = (function () {
       const capitalized = str.replace(/^./, str[0].toUpperCase());
       return capitalized;
       }
+	$('#pokemon-modal').modal('show');
     //Returning IIFE functions
     return {
       add: add,
