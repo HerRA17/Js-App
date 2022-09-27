@@ -115,7 +115,7 @@ const pokemonRepository = (function () {
 				pokemonTypes.push(' ' + pokemon.types[key].type.name);
 			});
       let typesElement = $("<p>" + "Type(s): " + pokemonTypes + "</p>");
-      
+      // event list-carousel; linnk it to buttons with url and 
       
       modalTitle.append(nameElement);
       modalBody.append(imageElementFront);
