@@ -116,8 +116,8 @@ const pokemonRepository = (function () {
 			});
       let typesElement = $("<p>" + "Type(s): " + pokemonTypes + "</p>");
       // Carousel action 
-      var myCarousel = document.querySelector("#myCarousel");
-      var carousel = new bootstrap.Carousel(myCarousel);
+      // var myCarousel = document.querySelector("#myCarousel");
+      // var carousel = new bootstrap.Carousel(myCarousel);
 
       modalTitle.append(nameElement);
       modalBody.append(imageElementFront);
