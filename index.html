@@ -1,48 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
         <meta charset="uft-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="img/png" sizes="32x32" href="https://user-images.githubusercontent.com/91563884/189487318-177e3e63-8d9e-4b2a-acf3-0288a69bb0c5.png">
+        <link rel="icon" type="img/png" sizes="32x32" href="img/pokebola.png">
         <title>Simple Js App</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
         <!-- Bootstrap CSS-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    </head>
-    <body>
-        <header>
-            <h1>Pokedex</h1>
-        </header>
-        <main>
-<!--         <div class="pokemon-list-container"> -->
-        <ul class="list-group"></ul>
-<!--         </div> -->
-        <!--Modal -->
-        <div class="modal fade" id="pokemon-modal" tabindex="-1" role="dialog" aria-labelledby="pokemon-modal-label" aria-hidden="true">
-            <div class="modal-dialog"  role="document">
-                <div class="modal-contetn">
-                    <div class="modal-header justify-content-center">
-                        <h5 class="modal-title" id="pokemon-modal-title">Pokemon title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+</head>
+<body>
+     <header>
+       <h1>Pokedex</h1>
+     </header>
+     <main>
+      <!-- Pokemon list -->
+           <div class="pokemon-list-container">
+           <ul class="list-group"></ul>
+           </div>
+           <!--Button trigger Modal -->
+           <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pokemon-modal"></button> -->
+           <!--Modal -->
+           <div class="modal fade" id="pokemon-modal" tabindex="-1" role="dialog" aria-labelledby="pokemonModalLabel" aria-hidden="true">
+               <div class="modal-dialog"  role="document">
+               <div class="modal-content justify content-center">
+               <div class="modal-header">
+               <h5 class="modal-title" id="pokemonModalLabel">Pokemon title</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+               </button>
+               </div>
+               <div class="modal-body">
+                <!-- Loading spinner-->
+                <div class="d-flex align-items-center">
+                    <strong>Loading...</strong>
+                    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
                     </div>
-                    <div class="modal-body">
-                        <!-- Loading spinner-->
-                        <div class="d-flex align-items-center">
-                                  <strong>Loading...</strong>
-                                  <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                </div>
+                <!-- Proper transition <div>
+                  <a href="https://pokeapi.co/api/v2/pokemon/?offset=0&limit=51"><button>Previous</button></a>
+                  <a href="https://pokeapi.co/api/v2/pokemon/?offset=102&limit=51"><button>Next</button></a>
+                </div> -->
+                <!--Carousel-->
+                <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div> -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-        </div>
-        </main>
+     </main>
         <script src="js/promise-polyfill.js"></script>
         <script src="js/fetch.js"></script>
         <script src="js/scripts.js"></script>
@@ -53,7 +83,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     <footer>
-        <a class="credits" href="https://www.flaticon.es/iconos-gratis/pokemon" title="pokemon iconos">Pokemon iconos created by Nikita Golubev - Flaticon</a>
+      <a class="credits" href="https://www.flaticon.es/iconos-gratis/pokemon" title="pokemon iconos">Pokemon iconos created by Nikita Golubev - Flaticon</a>
     </footer>
-    </body>
+</body>
 </html>

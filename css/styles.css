@@ -1,49 +1,62 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+
 * {
     -webkit-box-sizing:border-box;
-    box-sizing:border-box;
-}
-
-body {
-    background-color:#30415A !important;
-    color:#3AB4F2 !important;
-    font-size: 25px !important;
-    font-family: 'Courier New', Courier, monospace !important;
-    line-height: 20px !important; 
-}
-
-h1 {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-box-pack: center !important;
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-    font-size: 4em !important;
-}
-
-.modal-body {
-        position:absolute !important;
-        left:50% !important;
-        top:50% !important;
-        width: 70% !important;
+            box-sizing:border-box;
+    }
+    
+    body {
+        background-color:#30415A !important;
+        color:#3AB4F2 !important;
+        font-size: 25px !important;
+        font-family: 'Courier New', Courier, monospace !important;
+        line-height: 20px !important; 
+    }
+    
+    h1 {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        -webkit-box-pack: center !important;
+            -ms-flex-pack: center !important;
+                justify-content: center !important;
+        font-size: 4em !important;
+    }
+    
+    .modal-fade {
+        position: absolute !important;
+        top: 45% !important;
+        width: 80% !important;
         height: auto !important;
+        text-align: center;
+        
+    }
+    
+    ul {
+        list-style-type: none !important;
+        margin: 10px !important;
+        padding:0 !important;
+        display: -ms-grid !important;
+        display: grid !important;
+        -ms-grid-columns: 1fr 1fr 1fr !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
+        -ms-grid-rows:auto !important;
+        grid-template-rows:auto !important;
+        background-color:transparent !important;
+        color:#FED934;
+    }
+    
+    li {
+        align-items: center !important;
     }
 
-ul {
-    list-style-type: none !important;
-    margin: 10px !important;
-    padding:0 !important;
-    display: -ms-grid !important;
-    display: grid !important;
-    -ms-grid-columns: 1fr 1fr 1fr !important;
-    grid-template-columns: 1fr 1fr 1fr !important;
-    -ms-grid-rows:auto !important;
-    grid-template-rows:auto !important;
-    background-color:transparent !important;
-    color:#FED934;
-}
-
- ul > *:nth-child(1) {
+    ul > *:nth-child(1) {
     -ms-grid-row:1;
     -ms-grid-column:1;
     }
@@ -57,23 +70,22 @@ ul {
     -ms-grid-row:1;
     -ms-grid-column:3;
     }
-
-.pokemon-button {
-    margin: 10px;
-    background-color:transparent ;
-    color:#FED934;
-    font-family: 'Courier New', Courier, monospace;
-    border:3px solid #3AB4F2;
-    border-style: dashed;
-
-}
-
-.list-group{
-  border-color: #3AB4F2;
-  border-style: dotted;  
-}
-
-.credits {
+    
+    .pokemon-button {
+        margin: 10px;
+        background-color:transparent ;
+        color:#FED934;
+        font-family: 'Courier New', Courier, monospace;
+        border:3px solid #3AB4F2;
+        border-style: dashed;
+    }
+    
+    .list-group{
+      border-color: #3AB4F2;
+      border-style: dotted;  
+    }
+    
+    .credits {
         display: block;
         color:#3AB4F2;
         -webkit-box-pack: center;
@@ -81,15 +93,14 @@ ul {
                 justify-content: center;
         justify-items: center;
     }
-
-@media screen and  (max-width: 500px) {
-        li{
+    
+    @media screen and  (max-width: 500px) {
+        li{ 
             display: block;
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
         justify-items: center;
         width: 95%;
+        }
     }
-}
-
