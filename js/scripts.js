@@ -115,8 +115,10 @@ const pokemonRepository = (function () {
 				pokemonTypes.push(' ' + pokemon.types[key].type.name);
 			});
       let typesElement = $("<p>" + "Type(s): " + pokemonTypes + "</p>");
-      // event list-carousel; linnk it to buttons with url and 
-      
+      // Carousel action 
+      var myCarousel = document.querySelector("#myCarousel");
+      var carousel = new bootstrap.Carousel(myCarousel);
+
       modalTitle.append(nameElement);
       modalBody.append(imageElementFront);
       modalBody.append(heightElement);
@@ -151,7 +153,6 @@ const pokemonRepository = (function () {
      const capitalized = str.replace(/^./, str[0].toUpperCase());
       return capitalized;
       }
-      // console.log();
     //Returning IIFE functions
     return {
       add: add,
