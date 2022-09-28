@@ -15,6 +15,7 @@
         background-color:#30415A !important;
         color:#3AB4F2 !important;
         font-size: 25px !important;
+        font-weight: bold !important;
         font-family: 'Courier New', Courier, monospace !important;
         line-height: 20px !important; 
     }
@@ -94,13 +95,14 @@
         justify-items: center;
     }
     
-    @include media-breakpoint-up(sm) {
-        li{ 
-            display: block;
-        -webkit-box-pack: center;
+    @media (max-width: 550px) {
+        ul{ 
+            display: block !important;
+            -webkit-box-pack: center;
             -ms-flex-pack: center;
-                justify-content: center;
-        justify-items: center;
-        width: 95%;
+            justify-content: center!important;
+            justify-items: center!important;
+            align-content: center!important;
+            width: 95%;
         }
     }
