@@ -43,7 +43,6 @@ const pokemonRepository = (function () {
     //append li
     pokemonList.appendChild(listPokemon);
   }
-  console.log(addListItem);
   //load list function
   function loadList() {
     return fetch(apiUrl)
@@ -63,7 +62,6 @@ const pokemonRepository = (function () {
         console.error(e);
       });
   }
-  console.log(loadList);
   //load details function
   function loadDetails(pokemon) {
     let url = pokemon.detailsUrl;
@@ -81,14 +79,12 @@ const pokemonRepository = (function () {
         console.error(e);
       });
   }
-  console.log(loadDetails);
   //shows details of pokemon
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
       showModal(pokemon);
     });
   }
-  console.log(showDetails);
   //Function modal
   let modalContainer = document.querySelector("#pokemon-modal");
   function showModal(pokemon) {
@@ -122,19 +118,16 @@ const pokemonRepository = (function () {
     modalContainer.classList.add("is-visible");
     $("#pokemonModal").modal("show");
   }
-  console.log(showModal);
   //Function hide modal
   function hideModal() {
     modalContainer.classList.remove("is-visible");
   }
-  console.log(hideModal);
   //Function to hide modal when Escapekey is pressed
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
       hideModal();
     }
   });
-  console.log(window);
   //Function to hide modal when clicking outside of modal
   modalContainer.addEventListener("click", (e) => {
     let target = e.target;
@@ -142,7 +135,6 @@ const pokemonRepository = (function () {
       hideModal();
     }
   });
-  console.log(modalContainer);
   //Function that converts first letter to uppercase
   function capitalizeFirstLetter(str) {
     const capitalized = str.replace(/^./, str[0].toUpperCase());
