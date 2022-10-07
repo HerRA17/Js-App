@@ -15,12 +15,10 @@ const pokemonRepository = (function () {
       document.alert("pokemon is not correct");
     }
   }
-  console.log(add);
   //get all function
   function getAll() {
     return pokemonList;
   }
-  console.log(getAll);
   //add pokemon to list-creating elements in HTML
   function addListItem(pokemon) {
     //selector of ul in HTMl
@@ -36,7 +34,7 @@ const pokemonRepository = (function () {
     //linking buttons to modal
     button.setAttribute("data-toggle", "modal");
     button.setAttribute("data-target", "#pokemon-modal");
-    // addShowModal(pokemon);
+    
     button.addEventListener("click", function () {
       showDetails(pokemon);
     });
@@ -59,7 +57,6 @@ const pokemonRepository = (function () {
             detailsUrl: item.url,
           };
           add(pokemon);
-          // console.log(pokemon);
         });
       })
       .catch(function (e) {
@@ -89,7 +86,6 @@ const pokemonRepository = (function () {
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
       showModal(pokemon);
-      // console.log(pokemon);
     });
   }
   console.log(showDetails);
