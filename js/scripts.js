@@ -93,6 +93,7 @@ const pokemonRepository = (function () {
 
     modalTitle.empty();
     modalBody.empty();
+    // data-target ='#myCarousel'
     //creating element for name
     let nameElement = $("<h1>" + capitalizeFirstLetter(pokemon.name) + "</h1>");
     //creating new img
@@ -140,6 +141,18 @@ const pokemonRepository = (function () {
     const capitalized = str.replace(/^./, str[0].toUpperCase());
     return capitalized;
   }
+  // Activate Carousel
+$("#myCarousel").carousel();
+
+// Enable Carousel Indicators
+// $(".item").click(function(){
+//   $("#myCarousel").carousel(1);
+// });
+
+// Enable Carousel Controls
+// $(".left").click(function(){
+//   $("#myCarousel").carousel("prev");
+// });
   //Returning IIFE functions
   return {
     add: add,
