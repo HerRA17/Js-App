@@ -9,5 +9,6 @@ Additionally enables viewing loaded data items in detail (height, weight).
 ## Key Features:
 load data from external API
 150 pokemons
+On user action (clicking item) view details about Pokemon
 ## Technologies Used:
 HTML, CSS, Java Script, Bootstrap, Jquery
