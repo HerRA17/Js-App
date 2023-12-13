@@ -95,21 +95,21 @@ const pokemonRepository = (function () {
     modalBody.empty();
     // data-target ='#myCarousel'
     //creating element for name
-    let nameElement = $("<h1>" + capitalizeFirstLetter(pokemon.name) + "</h1>");
+    let nameElement = $(`<h1 class="pokemonName" > ${capitalizeFirstLetter(pokemon.name)} </h1>`);
     //creating new img
     let imageElementFront = $(
       `<img alt="pokemon-image" src="${pokemon.imageUrl}" class="modal-img" style="width:40%">`
     );
     //creating elemnt for height
-    let heightElement = $("<p>" + "Height: " + pokemon.height + "</p>");
+    let heightElement = $(`<p class="pokemonHeight"> Height: ${pokemon.height}  </p>`);
     //creating element for weight
-    let weightElement = $("<p>" + "Weight: " + pokemon.weight + "</p>");
+    let weightElement = $(`<p class="pokemonWeight"> Weight: ${pokemon.weight} </p>`);
     //creating element for types
     let pokemonTypes = [];
     Object.keys(pokemon.types).forEach((key) => {
       pokemonTypes.push(" " + pokemon.types[key].type.name);
     });
-    let typesElement = $("<p>" + "Type(s): " + pokemonTypes + "</p>");
+    let typesElement = $(`<p class="pokemonTypes"> Type(s): ${pokemonTypes} </p>`);
 
     modalTitle.append(nameElement);
     modalBody.append(imageElementFront);
@@ -141,8 +141,24 @@ const pokemonRepository = (function () {
     const capitalized = str.replace(/^./, str[0].toUpperCase());
     return capitalized;
   }
+
+// search function
+function searchPokemon() {
+  let input = document.getElementById("search-bar").value.toLowerCase();
+  let foundPokemon = pokemonRepository.getAll().filter(pokemon => {
+    return pokemon.name.toLowerCase().includes(input);
+  }); 
+  // clear the current list
+    let pokemonList = document.querySelector(".list-group");
+    pokemonList.innerHTML = "";
+  // add found pokemon to the list
+    foundPokemon.forEach(pokemon => {
+      pokemonRepository.addListItem(pokemon)
+    })
+}
+
   // Activate Carousel
-$("#myCarousel").carousel();
+// $("#myCarousel").carousel();
 
 // Enable Carousel Indicators
 // $(".item").click(function(){
@@ -163,6 +179,7 @@ $("#myCarousel").carousel();
     showDetails: showDetails,
     showModal: showModal,
     hideModal: hideModal,
+    searchPokemon: searchPokemon
   };
 })();
 

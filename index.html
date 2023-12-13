@@ -19,8 +19,8 @@
       <!-- Search-bar -->
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search Pokemon" aria-label="Search">
-          <button class="btn btn-outline-info " type="submit" style="color:#FED934; border-color: #3AB4F2;">Search</button>
+          <input id="search-bar" class="form-control me-2" type="search" placeholder="Search Pokemon" aria-label="Search">
+          <button class="btn btn-outline-info " onclick="pokemonRepository.searchPokemon()" type="button" style="color:#FED934; border-color: #3AB4F2;">Search</button>
         </form>
       </nav>
       <!-- Pokemon list -->
@@ -69,6 +69,7 @@
      </main>
         <script src="js/promise-polyfill.js"></script>
         <script src="js/fetch.js"></script>
+        <!-- <script src="js/scripts.js"></script> -->
         <script src="dist/minify-script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" 
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
